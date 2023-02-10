@@ -8,12 +8,12 @@
 
 ## 简介
 
-这是一个 [Yunzai-Bot V3][yunzai] 的插件，提供R6查询、KOOK查询等功能
+这是一个 [Yunzai-Bot V3][yunzai] 的插件，提供 R6 查询、KOOK 查询等功能
 
 ## 功能
 
-* [ ] 彩虹六号战绩查询
-* [ ] KOOK语音在线查询
+- [x] 彩虹六号战绩查询
+- [ ] KOOK 语音在线查询
 
 ## 使用
 
@@ -25,22 +25,23 @@ git clone https://github.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
 
 国内服务器可使用 [Gitee][gitee] 或 [GitHub Proxy][ghproxy] 加速克隆
 
-* Gitee
-  
+- Gitee
+
   ```shell
   git clone https://gitee.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
   ```
 
-* GitHub Proxy
-  
+- GitHub Proxy
+
   ```shell
   git clone https://ghproxy.com/https://github.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
   ```
 
+向机器人发送 `#Ar帮助` 命令查看功能列表.
+
 ## 反馈
 
-* 提交 [Issues](../../issues)
-
+- 提交 [Issues](../../issues)
 
 ## 开源协议
 
@@ -63,17 +64,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ## 鸣谢
 
-* [Yunzai Bot](https://gitee.com/Le-niao/Yunzai-Bot)
-* [Guoba Plugin](https://gitee.com/guoba-yunzai/guoba-plugin)
-* [Visual Studio Code](https://code.visualstudio.com/)
-
+- [Yunzai Bot](https://gitee.com/Le-niao/Yunzai-Bot)
+- [Guoba Plugin](https://gitee.com/guoba-yunzai/guoba-plugin)
+- [Visual Studio Code](https://code.visualstudio.com/)
 
 [banner]: https://socialify.git.ci/armoe-project/armoe-plugin/image?description=1&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Auto
-
 [license]: https://img.shields.io/github/license/armoe-project/armoe-plugin?style=for-the-badge
-
 [gitee]: https://gitee.com/armoe-project/armoe-plugin
-
 [ghproxy]: https://ghproxy.com/
-
 [yunzai]: https://gitee.com/Le-niao/Yunzai-Bot

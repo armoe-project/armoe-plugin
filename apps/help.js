@@ -9,7 +9,7 @@ const helpList = [
 ]
 
 export class help extends plugin {
-  constructor(e) {
+  constructor() {
     super({
       name: 'Armoe Plugin 帮助',
       dsc: '查看 Armoe Plugin 帮助信息',
@@ -17,7 +17,7 @@ export class help extends plugin {
       priority: 500,
       rule: [
         {
-          reg: '^#(Ar|ar|AR|Armoe|armoe|ARMOE)(插件| Plugin| plugin)?(帮助|菜单|说明|使用说明)$',
+          reg: '^#(Ar|ar|AR|Armoe|armoe|ARMOE)(插件| Plugin| plugin)?(帮助|菜单|功能|说明|使用说明)$',
           fnc: 'help'
         }
       ]
