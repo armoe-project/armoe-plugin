@@ -8,7 +8,10 @@ import { _paths } from './paths.js'
  */
 class Config {
   constructor() {
-    /** 配置文件 */
+    /** 默认设置 */
+    this.defSet = {}
+
+    /** 用户设置 */
     this.config = {}
 
     // 初始化
@@ -31,6 +34,9 @@ class Config {
     }
 
     try {
+      this.defSet = YAML.parse(
+        fs.readFileSync(`${_paths.defSet}/config.yaml`, 'utf8')
+      )
       this.config = YAML.parse(
         fs.readFileSync(`${_paths.config}/config.yaml`, 'utf8')
       )
@@ -39,7 +45,8 @@ class Config {
       throw error
     }
 
-    this.readYaml()
+    this.config = lodash.merge(this.defSet, this.config)
+    this.saveYaml()
   }
 
   /**
@@ -60,6 +67,7 @@ class Config {
    */
   set(path, value) {
     lodash.set(this.config, path, value)
+    console.log(this.config)
     this.saveYaml()
   }
 
