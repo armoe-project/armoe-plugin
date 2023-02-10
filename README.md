@@ -23,19 +23,18 @@
 git clone https://github.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
 ```
 
-国内服务器可使用 [GitHub Proxy][ghproxy] 或 [Gitee][gitee] 加速克隆
+国内服务器可使用 [Gitee][gitee] 或 [GitHub Proxy][ghproxy] 加速克隆
 
-**注意: Gitee的版本可能不是最新版**
+* Gitee
+  
+  ```shell
+  git clone https://gitee.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
+  ```
 
 * GitHub Proxy
   
   ```shell
   git clone https://ghproxy.com/https://github.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
-  ```
-* Gitee
-  
-  ```shell
-  git clone https://gitee.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
   ```
 
 ## 反馈
