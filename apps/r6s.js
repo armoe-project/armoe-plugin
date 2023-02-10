@@ -10,7 +10,11 @@ export class r6s extends plugin {
       priority: 500,
       rule: [
         {
-          reg: '^#(r6|R6)(s|S)?([ A-Za-z0-9]+)$',
+          reg: '^#(r6s|R6s)$',
+          fnc: 'r6s'
+        },
+        {
+          reg: '^#(r6s|R6S)([ A-Za-z0-9]+)$',
           fnc: 'r6s'
         }
       ]
@@ -18,7 +22,7 @@ export class r6s extends plugin {
   }
 
   async r6s(e) {
-    const reg = /^#(r6|R6)(s|S)([ A-Za-z0-9]+)$/
+    const reg = /^#(r6s|R6S)([ A-Za-z0-9]+)$/
     const match = reg.exec(e.msg)
 
     if (match == null) {
@@ -26,7 +30,7 @@ export class r6s extends plugin {
     }
 
     const api = 'https://r6.tracker.network/api/v0/overwolf/player'
-    const username = match[3]
+    const username = match[2]
 
     const response = await fetch(`${api}?name=${username}`)
     const errMsg = '查询失败，请检查用户名是否正确或稍后再试!'
@@ -38,31 +42,37 @@ export class r6s extends plugin {
       return await this.reply(errMsg)
     }
 
-    const name = data.name
-    const level = data.level
+    try {
+      const name = data.name
+      const level = data.level
 
-    const season = data.currentSeasonBestRegion
-    const rankName = season.rankName
-    const matches = season.matches
-    const wins = season.wins
-    const winPct = season.winPct
-    const kills = season.kills
-    const kd = season.kd
-    const rankPoints = season.rankPoints
-    const maxRankPoints = season.maxRankPoints
+      const season = data.currentSeasonBestRegion
+      const rankName = season.rankName
+      const matches = season.matches
+      const wins = season.wins
+      const winPct = season.winPct
+      const kills = season.kills
+      const kd = season.kd
+      const rankPoints = season.rankPoints
+      const maxRankPoints = season.maxRankPoints
 
-    const message =
-      `Lv.${level} ${name}\n` +
-      `段位: ${this.rank(rankName)}\n` +
-      `总场: ${matches}\n` +
-      `胜场: ${wins}\n` +
-      `胜率: ${winPct}%\n` +
-      `杀敌: ${kills}\n` +
-      `K/D比: ${kd.toFixed(2)}\n` +
-      `MMR: ${rankPoints}\n` +
-      `最高MMR: ${maxRankPoints}`
+      const message =
+        `Lv.${level} ${name}\n` +
+        `段位: ${this.rank(rankName)}\n` +
+        `总场: ${matches}\n` +
+        `胜场: ${wins}\n` +
+        `胜率: ${winPct}%\n` +
+        `杀敌: ${kills}\n` +
+        `K/D比: ${kd.toFixed(2)}\n` +
+        `MMR: ${rankPoints}\n` +
+        `最高MMR: ${maxRankPoints}`
 
-    await this.reply(message)
+      await this.reply(message)
+    } catch (error) {
+      console.log(data)
+      await this.reply(errMsg)
+      throw error
+    }
   }
 
   rank(rankName) {
