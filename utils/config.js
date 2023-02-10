@@ -1,6 +1,6 @@
 import YAML from 'yaml'
 import fs from 'fs'
-import { pluginPackage } from './package.js'
+import lodash from 'lodash'
 import { _paths } from './paths.js'
 
 /**
@@ -48,7 +48,8 @@ class Config {
    * @param {string} path 路径
    */
   get(path) {
-    return this.config[path]
+    console.log(this.config)
+    return lodash.get(this.config, path)
   }
 
   /**
@@ -58,7 +59,7 @@ class Config {
    * @param {*} value
    */
   set(path, value) {
-    this.config[path] = value
+    lodash.set(this.config, path, value)
     this.saveYaml()
   }
 
