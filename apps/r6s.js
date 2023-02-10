@@ -1,5 +1,4 @@
 import plugin from '../../../lib/plugins/plugin.js'
-import { segment } from 'oicq'
 import fetch from 'node-fetch'
 
 export class r6s extends plugin {
@@ -11,7 +10,7 @@ export class r6s extends plugin {
       priority: 500,
       rule: [
         {
-          reg: '^#(r6|R6)(s|S|战绩查询|查询|战绩)|([ A-Za-z0-9]+)$',
+          reg: '^#(r6|R6)(s|S|战绩查询|查询|战绩)?([ A-Za-z0-9]+)$',
           fnc: 'r6s'
         }
       ]
