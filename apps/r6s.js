@@ -53,9 +53,7 @@ export class r6s extends plugin {
     const maxRankPoints = season.maxRankPoints
 
     const message =
-      '' +
-      `${name}\n` +
-      `等级: ${level}\n` +
+      `Lv.${level} ${name}\n` +
       `段位: ${this.rank(rankName)}\n` +
       `总场: ${matches}\n` +
       `胜场: ${wins}\n` +
