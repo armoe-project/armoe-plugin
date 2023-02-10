@@ -4,5 +4,12 @@
   "description": "Armoe Plugin for Yunzai-Bot",
   "author": "ZhenXin",
   "license": "GPL-3.0-only",
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "start": "pnpm dev",
+    "dev": "cd ../../ && node-dev app"
+  },
+  "devDependencies": {
+    "node-dev": "^8.0.0"
+  }
 }

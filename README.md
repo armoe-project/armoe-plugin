@@ -6,9 +6,9 @@
 
 </div>
 
-## 简介
+## 简介z
 
-这是一个 [Yunzai-Bot V3][yunzai] 的插件, 提供R6查询、KOOK查询等功能
+这是一个 [Yunzai-Bot V3][yunzai] 的插件，提供R6查询、KOOK查询等功能
 
 ## 功能
 

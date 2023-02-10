@@ -4,9 +4,6 @@ const files = fs.readdirSync('./plugins/armoe-plugin/apps').filter(file => file.
 
 let ret = []
 
-logger.info('-----------------')
-logger.info('Armoe Plugin Loading...')
-
 files.forEach((file) => {
     ret.push(import(`./apps/${file}`))
 })
@@ -25,7 +22,9 @@ for (let i in files) {
     apps[name] = ret[i].value[Object.keys(ret[i].value)[0]]
 }
 
-logger.info('Armoe Plugin Loaded!')
+logger.info('-----------------')
+logger.info('欢迎使用 Armoe Plugin!')
+logger.info('Github: https://github.com/armoe-project/armoe-plugin')
 logger.info('-----------------')
 
 export { apps }
