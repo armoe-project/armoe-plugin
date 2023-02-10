@@ -10,7 +10,7 @@ export class r6s extends plugin {
       priority: 500,
       rule: [
         {
-          reg: '^#(r6|R6)(s|S)([ A-Za-z0-9]+)$',
+          reg: '^#(r6|R6)(s|S)?([ A-Za-z0-9]+)$',
           fnc: 'r6s'
         }
       ]

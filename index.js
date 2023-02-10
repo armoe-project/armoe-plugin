@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import pkg from './package.json' assert { type: 'json' }
+import { pluginPackage } from './utils/package.js'
 
 const files = fs
   .readdirSync('./plugins/armoe-plugin/apps')
@@ -26,7 +26,7 @@ for (let i in files) {
 }
 
 logger.info('-----------------')
-logger.info(`欢迎使用 Armoe Plugin, 当前版本: ${pkg.version}`)
+logger.info(`欢迎使用 Armoe Plugin, 当前版本: ${pluginPackage.version}`)
 logger.info('Github: https://github.com/armoe-project/armoe-plugin')
 logger.info('-----------------')
 

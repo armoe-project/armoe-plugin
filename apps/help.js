@@ -5,6 +5,11 @@ const helpList = [
     name: 'R6战绩查询',
     desc: '通过用户名查询彩虹六号战绩',
     usage: '#r6s <用户名>'
+  },
+  {
+    name: 'KOOK语音查询',
+    desc: '查询KOOK语音频道在线人数',
+    usage: '#KOOK'
   }
 ]
 
@@ -25,10 +30,10 @@ export class help extends plugin {
   }
 
   async help() {
-    let message = 'Armoe Plugin 帮助\n'
+    let message = 'Armoe Plugin 功能列表\n'
     helpList.forEach((help) => {
-      message += `功能: ${help.name}\n简介: ${help.desc}\n使用方法: ${help.usage}\n`
+      message += `功能: ${help.name}\n简介: ${help.desc}\n使用: ${help.usage}\n\n`
     })
-    await this.reply(message)
+    await this.reply(message.trimEnd())
   }
 }
