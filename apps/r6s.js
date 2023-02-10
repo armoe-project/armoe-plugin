@@ -30,7 +30,7 @@ export class r6s extends plugin {
     }
 
     const api = 'https://r6.tracker.network/api/v0/overwolf/player'
-    const username = match[2]
+    const username = match[2].trim()
 
     const response = await fetch(`${api}?name=${username}`)
     const errMsg = '查询失败，请检查用户名是否正确或稍后再试!'
