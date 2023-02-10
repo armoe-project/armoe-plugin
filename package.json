@@ -1,0 +1,8 @@
+{
+  "name": "armoe-plugin",
+  "version": "1.0.0",
+  "description": "Armoe Plugin for Yunzai-Bot",
+  "author": "ZhenXin",
+  "license": "GPL-3.0-only",
+  "type": "module"
+}
