@@ -40,7 +40,6 @@ export class r6s extends plugin {
     }
 
     const name = data.name
-    const avatar = data.avatar
     const level = data.level
 
     const season = data.currentSeasonBestRegion
@@ -53,7 +52,6 @@ export class r6s extends plugin {
     const rankPoints = season.rankPoints
     const maxRankPoints = season.maxRankPoints
 
-    const image = segment.image(avatar)
     const message =
       '' +
       `${name}\n` +
@@ -67,7 +65,7 @@ export class r6s extends plugin {
       `MMR: ${rankPoints}\n` +
       `最高MMR: ${maxRankPoints}`
 
-    await this.reply([image, message])
+    await this.reply(message)
   }
 
   rank(rankName) {
