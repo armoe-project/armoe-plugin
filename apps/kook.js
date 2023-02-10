@@ -15,10 +15,6 @@ export class kook extends plugin {
           fnc: 'kook'
         },
         {
-          reg: '^#(KOOK|kook)设置$',
-          fnc: 'kookSet'
-        },
-        {
           reg: '^#(KOOK|kook)设置(.*)$',
           fnc: 'kookSet'
         }
@@ -74,6 +70,9 @@ export class kook extends plugin {
   }
 
   async kookSet(e) {
+    const role = e.sender.role
+    if (role != 'owner' || role != 'admin') return
+
     if (e.isPrivate) {
       return await this.reply('该命令仅限群聊使用!')
     }
@@ -81,7 +80,9 @@ export class kook extends plugin {
     const reg = /^#(KOOK|kook)设置(.*)$/
     const match = reg.exec(e.msg)
 
-    if (match == null) {
+    const link = match[2].trim()
+
+    if (link == '') {
       return await this.reply(
         '获取服务器ID流程:\n' +
           '1.右上角点击服务器名称, 服务器设置>小工具\n' +
@@ -91,7 +92,6 @@ export class kook extends plugin {
       )
     }
 
-    const link = match[2].trim()
     const errMsg = '错误, 无法获取数据!\n请检查链接是否正确, 小工具是否已开启!'
     try {
       const response = await fetch(link)
