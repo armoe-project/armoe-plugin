@@ -4,6 +4,7 @@
   "description": "Armoe Plugin for Yunzai-Bot",
   "author": "ZhenXin",
   "license": "GPL-3.0-only",
+  "homepage": "https://github.com/armoe-project/armoe-plugin",
   "type": "module",
   "scripts": {
     "start": "pnpm dev",

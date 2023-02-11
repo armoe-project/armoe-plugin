@@ -1,5 +1,5 @@
-import fs from 'fs'
 import path from 'path'
+import { readJson } from './common.js'
 
 // 三种获取插件名的方式
 // console.log('pluginName 1:', path.basename(path.join(import.meta.url, '../../')))
@@ -8,9 +8,7 @@ import path from 'path'
 
 const pluginName = path.basename(path.join(import.meta.url, '../../'))
 
-const yunzaiPackage = JSON.parse(fs.readFileSync('./package.json', 'utf8'))
-const pluginPackage = JSON.parse(
-  fs.readFileSync(`./plugins/${pluginName}/package.json`, 'utf8')
-)
+const yunzaiPackage = readJson('./package.json')
+const pluginPackage = readJson(`./plugins/${pluginName}/package.json`)
 
 export { yunzaiPackage, pluginPackage }

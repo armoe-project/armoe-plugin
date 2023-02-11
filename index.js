@@ -27,7 +27,7 @@ for (let i in files) {
 
 logger.info('-----------------')
 logger.info(`欢迎使用 Armoe Plugin, 当前版本: ${pluginPackage.version}`)
-logger.info('Github: https://github.com/armoe-project/armoe-plugin')
+logger.info(`Github: ${pluginPackage.homepage}`)
 logger.info('-----------------')
 
 export { apps }
