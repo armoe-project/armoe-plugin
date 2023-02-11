@@ -14,7 +14,7 @@ export class r6s extends plugin {
           fnc: 'r6s'
         },
         {
-          reg: '^#(r6s|R6S)([ A-Za-z0-9_-]+)$',
+          reg: '^#(r6s|R6S)([ A-Za-z0-9_-.]+)$',
           fnc: 'r6s'
         }
       ]
@@ -22,7 +22,7 @@ export class r6s extends plugin {
   }
 
   async r6s(e) {
-    const reg = /^#(r6s|R6S)([ A-Za-z0-9_-]+)$/
+    const reg = /^#(r6s|R6S)([ A-Za-z0-9_-.]+)$/
     const match = reg.exec(e.msg)
 
     if (match == null) {
