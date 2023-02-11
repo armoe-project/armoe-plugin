@@ -10,11 +10,7 @@ export class r6s extends plugin {
       priority: 500,
       rule: [
         {
-          reg: '^#(r6s|R6s)$',
-          fnc: 'r6s'
-        },
-        {
-          reg: '^#(r6s|R6S)([ A-Za-z0-9_-.]+)$',
+          reg: '^#(r6s|R6S)(.*)$',
           fnc: 'r6s'
         }
       ]
@@ -22,15 +18,15 @@ export class r6s extends plugin {
   }
 
   async r6s(e) {
-    const reg = /^#(r6s|R6S)([ A-Za-z0-9_-.]+)$/
+    const reg = /^#(r6s|R6S)(.*)$/
     const match = reg.exec(e.msg)
+    const username = match[2].trim()
 
-    if (match == null) {
+    if (username == '') {
       return await this.reply('参数错误，请输入用户名!\n示例: #r6s QGZhenXin')
     }
 
     const api = 'https://r6.tracker.network/api/v0/overwolf/player'
-    const username = match[2].trim()
 
     const response = await fetch(`${api}?name=${username}`)
     const errMsg = '查询失败，请检查用户名是否正确或稍后再试!'
