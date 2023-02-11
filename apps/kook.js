@@ -71,11 +71,13 @@ export class kook extends plugin {
   }
 
   async kookSet(e) {
-    const role = e.sender.role
-    if (role != 'owner' || role != 'admin') return
-
     if (e.isPrivate) {
       return await this.reply('该命令仅限群聊使用!')
+    }
+
+    const role = e.sender.role
+    if (role != 'owner' && role != 'admin') {
+      return await this.reply('该命令仅限群主或管理员使用!')
     }
 
     const reg = /^#(KOOK|kook)设置(.*)$/
