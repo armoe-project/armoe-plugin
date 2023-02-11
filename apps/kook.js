@@ -32,7 +32,8 @@ export class kook extends plugin {
     }
 
     const server = config.get(`kook.servers.${e.group_id}`)
-    if (server == '') {
+
+    if (!server) {
       return await this.reply('请使用 #KOOK设置 设置本群服务器')
     }
 
