@@ -55,7 +55,6 @@ class Config {
    * @param {string} path 路径
    */
   get(path) {
-    console.log(this.config)
     return lodash.get(this.config, path)
   }
 
@@ -67,7 +66,6 @@ class Config {
    */
   set(path, value) {
     lodash.set(this.config, path, value)
-    console.log(this.config)
     this.saveYaml()
   }
 
