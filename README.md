@@ -23,7 +23,7 @@
 在云崽根目录打开终端，运行如下命令
 
 ```shell
-git clone https://github.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
+git clone --depth=1 https://github.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
 ```
 
 国内服务器可使用 [Gitee][gitee] 或 [GitHub Proxy][ghproxy] 加速克隆
@@ -31,13 +31,13 @@ git clone https://github.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
 - Gitee
 
   ```shell
-  git clone https://gitee.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
+  git clone --depth=1 https://gitee.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
   ```
 
 - GitHub Proxy
 
   ```shell
-  git clone https://ghproxy.com/https://github.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
+  git clone --depth=1 https://ghproxy.com/https://github.com/armoe-project/armoe-plugin ./plugins/armoe-plugin/
   ```
 
 向机器人发送 `#Ar帮助` 命令查看功能列表.
