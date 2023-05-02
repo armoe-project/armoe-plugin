@@ -1,5 +1,7 @@
 import plugin from '../../../lib/plugins/plugin.js'
+import { makeForwardMsg } from '../utils/common.js'
 import fetch from 'node-fetch'
+import { segment } from 'oicq'
 
 export class r6s extends plugin {
   constructor() {
@@ -39,33 +41,51 @@ export class r6s extends plugin {
     }
 
     try {
-      const name = data.name
-      const level = data.level
+      const avatar = data.avatar // 头像
+      const name = data.name // 用户名
+      const level = data.level // 等级
 
-      const season = data.currentSeasonBestRegion
-      const rankName = season.rankName
-      const matches = season.matches
-      const wins = season.wins
-      const winPct = season.winPct
-      const kills = season.kills
-      const kd = season.kd
-      const rankPoints = season.rankPoints
-      const maxRankPoints = season.maxRankPoints
+      const season = data.currentSeasonBestRegion // 当前赛季
+      const rankName = this.rank(season.rankName) // 段位
+      const matches = season.matches // 总场
+      const wins = season.wins // 胜场
+      const winPct = season.winPct // 胜率
+      const kills = season.kills // 杀敌
+      const kd = season.kd // K/D比
+      const rankPoints = season.rankPoints // MMR
+      const maxRankPoints = season.maxRankPoints // 最高MMR
 
-      const message =
+      // TOOD: 干员数据
+      // const operators = this.sortOperators(data.operators)
+      // logger.mark(operators)
+
+      const messages = []
+
+      let avatarImage
+      try {
+        avatarImage = segment.image(avatar)
+      } catch (error) {}
+
+      if (avatarImage) {
+        messages.push(avatarImage)
+      }
+
+      messages.push(
         `Lv.${level} ${name}\n` +
-        `段位: ${this.rank(rankName)}\n` +
-        `总场: ${matches}\n` +
-        `胜场: ${wins}\n` +
-        `胜率: ${winPct}%\n` +
-        `杀敌: ${kills}\n` +
-        `K/D比: ${kd.toFixed(2)}\n` +
-        `MMR: ${rankPoints}\n` +
-        `最高MMR: ${maxRankPoints}`
+          `段位: ${rankName}\n` +
+          `总场: ${matches}\n` +
+          `胜场: ${wins}\n` +
+          `胜率: ${winPct}%\n` +
+          `杀敌: ${kills}\n` +
+          `K/D比: ${kd.toFixed(2)}\n` +
+          `MMR: ${rankPoints}\n` +
+          `最高MMR: ${maxRankPoints}`
+      )
 
+      const message = await makeForwardMsg(e, messages)
       await this.reply(message)
     } catch (error) {
-      console.log(data)
+      logger.error(data)
       await this.reply(errMsg)
       throw error
     }
@@ -80,6 +100,10 @@ export class r6s extends plugin {
       .replace(/PLATINUM/, '白金')
       .replace(/EMERALD/, '翡翠')
       .replace(/DIMOND/, '钻石')
-      .replace(/CHAMPIONS/, '冠军')
+      .replace(/CHAMPION/, '冠军')
+  }
+
+  sortOperators(operators) {
+    return operators.sort((a, b) => a.timePlayed - b.timePlayed).reverse()
   }
 }

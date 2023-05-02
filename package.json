@@ -8,9 +8,6 @@
   "type": "module",
   "scripts": {
     "start": "pnpm dev",
-    "dev": "cd ../../ && node-dev app"
-  },
-  "devDependencies": {
-    "node-dev": "^8.0.0"
+    "dev": "cd ../../ && node app"
   }
 }

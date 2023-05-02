@@ -27,19 +27,12 @@ class Config {
     }
 
     if (!fs.existsSync(`${_paths.config}/config.yaml`)) {
-      fs.copyFileSync(
-        `${_paths.defSet}/config.yaml`,
-        `${_paths.config}/config.yaml`
-      )
+      fs.copyFileSync(`${_paths.defSet}/config.yaml`, `${_paths.config}/config.yaml`)
     }
 
     try {
-      this.defSet = YAML.parse(
-        fs.readFileSync(`${_paths.defSet}/config.yaml`, 'utf8')
-      )
-      this.config = YAML.parse(
-        fs.readFileSync(`${_paths.config}/config.yaml`, 'utf8')
-      )
+      this.defSet = YAML.parse(fs.readFileSync(`${_paths.defSet}/config.yaml`, 'utf8'))
+      this.config = YAML.parse(fs.readFileSync(`${_paths.config}/config.yaml`, 'utf8'))
     } catch (error) {
       logger.error(`[Armoe] 配置文件格式错误! `, error)
       throw error
@@ -74,9 +67,7 @@ class Config {
    */
   readYaml() {
     try {
-      this.config = YAML.parse(
-        fs.readFileSync(`${_paths.config}/config.yaml`, 'utf8')
-      )
+      this.config = YAML.parse(fs.readFileSync(`${_paths.config}/config.yaml`, 'utf8'))
     } catch (error) {
       logger.error(`[Armoe] 配置文件格式错误! `, error)
       throw error
