@@ -60,7 +60,6 @@ export class strategy extends plugin {
     } else {
       Object.keys(roleAlias).forEach((value) => {
         const alias = roleAlias[value]
-        console.log(alias)
         if (alias.includes(roleName)) {
           roleName = value
           isSend = true
