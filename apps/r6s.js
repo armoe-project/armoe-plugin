@@ -41,25 +41,11 @@ export class r6s extends plugin {
     }
 
     try {
+      const messages = []
+
       const avatar = data.avatar // 头像
       const name = data.name // 用户名
       const level = data.level // 等级
-
-      const season = data.currentSeasonBestRegion // 当前赛季
-      const rankName = this.rank(season.rankName) // 段位
-      const matches = season.matches // 总场
-      const wins = season.wins // 胜场
-      const winPct = season.winPct // 胜率
-      const kills = season.kills // 杀敌
-      const kd = season.kd // K/D比
-      const rankPoints = season.rankPoints // MMR
-      const maxRankPoints = season.maxRankPoints // 最高MMR
-
-      // TOOD: 干员数据
-      // const operators = this.sortOperators(data.operators)
-      // logger.mark(operators)
-
-      const messages = []
 
       let avatarImage
       try {
@@ -70,17 +56,37 @@ export class r6s extends plugin {
         messages.push(avatarImage)
       }
 
-      messages.push(
-        `Lv.${level} ${name}\n` +
-          `段位: ${rankName}\n` +
-          `总场: ${matches}\n` +
-          `胜场: ${wins}\n` +
-          `胜率: ${winPct}%\n` +
-          `杀敌: ${kills}\n` +
-          `K/D比: ${kd.toFixed(2)}\n` +
-          `MMR: ${rankPoints}\n` +
-          `最高MMR: ${maxRankPoints}`
-      )
+      messages.push(`Lv.${level} ${name}`)
+
+      const season = data.currentSeasonBestRegion // 当前赛季
+      if (season) {
+        const rankName = this.rank(season.rankName) // 段位
+        const matches = season.matches // 总场
+        const wins = season.wins // 胜场
+        const winPct = season.winPct // 胜率
+        const kills = season.kills // 杀敌
+        const kd = season.kd // K/D比
+        const rankPoints = season.rankPoints // MMR
+        const maxRankPoints = season.maxRankPoints // 最高MMR
+
+        messages.push(
+          '当前赛季: \n' +
+            `段位: ${rankName}\n` +
+            `总场: ${matches}\n` +
+            `胜场: ${wins}\n` +
+            `胜率: ${winPct}%\n` +
+            `杀敌: ${kills}\n` +
+            `K/D比: ${kd.toFixed(2)}\n` +
+            `MMR: ${rankPoints}\n` +
+            `最高MMR: ${maxRankPoints}`
+        )
+      } else {
+        messages.push('当前赛季暂无数据')
+      }
+
+      // TOOD: 干员数据
+      // const operators = this.sortOperators(data.operators)
+      // logger.mark(operators)
 
       const message = await makeForwardMsg(e, messages)
       await this.reply(message)
