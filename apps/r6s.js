@@ -43,18 +43,8 @@ export class r6s extends plugin {
     try {
       const messages = []
 
-      const avatar = data.avatar // 头像
       const name = data.name // 用户名
       const level = data.level // 等级
-
-      let avatarImage
-      try {
-        avatarImage = segment.image(avatar)
-      } catch (error) {}
-
-      if (avatarImage) {
-        messages.push(avatarImage)
-      }
 
       messages.push(`Lv.${level} ${name}`)
 
