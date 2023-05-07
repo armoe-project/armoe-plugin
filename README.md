@@ -17,6 +17,8 @@
 | 彩虹六号战绩查询 | #r6s QGZhenXin | 通过用户名查询彩虹六号战绩 |
 | KOOK 语音查询    |     #KOOK      | 查询 KOOK 语音频道在线人数 |
 
+*星穹铁道攻略查询已移动至 [StarRail-plugin](https://github.com/hewang1an/StarRail-plugin)
+
 ## 使用
 
 在云崽根目录打开终端，运行如下命令
