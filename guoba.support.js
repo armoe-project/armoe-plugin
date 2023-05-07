@@ -11,7 +11,7 @@ export function supportGuoba() {
       link: pluginPackage.homepage,
       isV3: true,
       isV2: false,
-      description: '提供星穹铁道攻略查询、R6战绩查询、KOOK在线查询等功能',
+      description: '提供R6战绩查询、KOOK在线查询等功能',
       iconPath: `${_paths.resources}/logo.webp`
     }
   }
