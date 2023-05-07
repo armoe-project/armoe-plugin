@@ -84,6 +84,40 @@ export class r6s extends plugin {
         messages.push('当前赛季暂无数据')
       }
 
+      const lifetime = data.lifetimeStats // 生涯数据
+      if (lifetime) {
+        const bestRank = this.rank(lifetime.bestMmr.name) // 最高段位
+        const bestMmr = lifetime.bestMmr.mmr // 最高MMR
+        const winPct = lifetime.winPct // 总胜率
+        const wins = lifetime.wins // 总胜场
+        const kd = lifetime.kd // KD比
+        const kills = lifetime.kills // 总杀敌
+        const matches = lifetime.matches // 总局数
+        const headshotPct = lifetime.headshotPct // 爆头率
+        const headshots = lifetime.headshots // 爆头数
+        const meleeKills = lifetime.meleeKills // 近战击杀
+        const deaths = lifetime.deaths // 死亡数
+        const losses = lifetime.losses // 失败数
+
+        messages.push(
+          '生涯数据: \n' +
+            `最高段位: ${bestRank}\n` +
+            `最高MMR: ${bestMmr}\n` +
+            `总场次: ${matches}\n` +
+            `总胜场: ${wins}\n` +
+            `总败场: ${losses}\n` +
+            `总胜率: ${winPct}%\n` +
+            `总杀敌: ${kills}\n` +
+            `总死亡: ${deaths}\n` +
+            `爆头率: ${headshotPct}%\n` +
+            `爆头击杀: ${headshots}\n` +
+            `近战击杀: ${meleeKills}\n` +
+            `K/D比: ${kd.toFixed(2)}\n`
+        )
+      } else {
+        messages.push('暂无生涯数据')
+      }
+
       // TOOD: 干员数据
       // const operators = this.sortOperators(data.operators)
       // logger.mark(operators)
