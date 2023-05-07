@@ -2,11 +2,6 @@ import plugin from '../../../lib/plugins/plugin.js'
 
 const helpList = [
   {
-    name: '星穹铁道攻略查询',
-    desc: '查询《崩坏：星穹铁道》的攻略 数据来源于米游社',
-    usage: '#希儿攻略'
-  },
-  {
     name: 'R6战绩查询',
     desc: '通过用户名查询彩虹六号战绩',
     usage: '#r6s <用户名>'
