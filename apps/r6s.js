@@ -1,7 +1,6 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import { makeForwardMsg } from '../utils/common.js'
 import fetch from 'node-fetch'
-import { segment } from 'oicq'
 
 export class r6s extends plugin {
   constructor() {
