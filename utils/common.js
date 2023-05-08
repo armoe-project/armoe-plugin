@@ -19,7 +19,7 @@ export function readJson(filePath) {
 export async function makeForwardMsg(e, msg = [], dec = '') {
   let nickname = e.bot.nickname
   if (e.isGroup) {
-    let info = await e.bot.getGroupMemberInfo(e.group_id, Bot.uin)
+    let info = await e.bot.pickMember(e.group_id, Bot.uin)
     nickname = info.card || info.nickname
   }
   let userInfo = {
