@@ -8,6 +8,6 @@
   "type": "module",
   "scripts": {
     "start": "pnpm dev",
-    "dev": "cd ../../ && node app"
+    "dev": "cd ../../ && node app dev"
   }
 }
