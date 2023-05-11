@@ -8,7 +8,9 @@
 
 ## 简介
 
-这是一个 [Yunzai-Bot V3][yunzai] 的插件，提供 R6 查询、KOOK 查询等功能
+这是一个 Yunzai-Bot V3 的插件，提供 R6 查询、KOOK 查询等功能
+
+推荐使用 [Miao-Yunzai](yunzai) 部署并使用本插件
 
 ## 功能
 
@@ -17,7 +19,7 @@
 | 彩虹六号战绩查询 | #r6s QGZhenXin | 通过用户名查询彩虹六号战绩 |
 | KOOK 语音查询    |     #KOOK      | 查询 KOOK 语音频道在线人数 |
 
-*星穹铁道攻略查询已移动至 [StarRail-plugin](https://github.com/hewang1an/StarRail-plugin)
+\*星穹铁道攻略查询已移动至 [StarRail-plugin](https://github.com/hewang1an/StarRail-plugin)
 
 ## 使用
 
@@ -68,7 +70,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ## 鸣谢
 
-- [Yunzai Bot](https://gitee.com/Le-niao/Yunzai-Bot)
+- [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
+- [Yunzai Bot](https://github.com/Le-niao/Yunzai-Bot)
 - [Guoba Plugin](https://gitee.com/guoba-yunzai/guoba-plugin)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -76,4 +79,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 [license]: https://img.shields.io/github/license/armoe-project/armoe-plugin?style=for-the-badge
 [gitee]: https://gitee.com/armoe-project/armoe-plugin
 [ghproxy]: https://ghproxy.com/
-[yunzai]: https://gitee.com/Le-niao/Yunzai-Bot
+[yunzai]: https://github.com/yoimiya-kokomi/Miao-Yunzai

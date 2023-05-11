@@ -109,7 +109,9 @@ export class r6s extends plugin {
 
       // TOOD: 干员数据
       // const operators = this.sortOperators(data.operators)
-      // logger.mark(operators)
+      // operators.forEach((operator) => {
+      //   logger.debug(operator)
+      // })
 
       const message = await makeForwardMsg(e, messages)
       await this.reply(message)
