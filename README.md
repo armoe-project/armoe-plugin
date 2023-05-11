@@ -14,10 +14,10 @@
 
 ## 功能
 
-| 名称             |      示例      |                       介绍 |
-| ---------------- | :------------: | -------------------------: |
+|       名称       |      示例      |            介绍            |
+| :--------------: | :------------: | :------------------------: |
 | 彩虹六号战绩查询 | #r6s QGZhenXin | 通过用户名查询彩虹六号战绩 |
-| KOOK 语音查询    |     #KOOK      | 查询 KOOK 语音频道在线人数 |
+|  KOOK 语音查询   |     #KOOK      | 查询 KOOK 语音频道在线人数 |
 
 \*星穹铁道攻略查询已移动至 [StarRail-plugin](https://github.com/hewang1an/StarRail-plugin)
 
@@ -70,7 +70,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ## 鸣谢
 
-- [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
+- [Miao Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai)
 - [Yunzai Bot](https://github.com/Le-niao/Yunzai-Bot)
 - [Guoba Plugin](https://gitee.com/guoba-yunzai/guoba-plugin)
 - [Visual Studio Code](https://code.visualstudio.com/)
