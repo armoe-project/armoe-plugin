@@ -1,5 +1,6 @@
 ---
 name: 提交Bug / Submit Bug
+about: 向我们报告一个Bug以帮助我们改进
 title: 'bug:    '
 ---
 
