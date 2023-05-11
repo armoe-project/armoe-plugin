@@ -10,7 +10,7 @@
 
 这是一个 Yunzai-Bot V3 的插件，提供 R6 查询、KOOK 查询等功能
 
-推荐使用 [Miao-Yunzai](yunzai) 部署并使用本插件
+推荐使用 [Miao-Yunzai][yunzai] 部署并使用本插件
 
 ## 功能
 
