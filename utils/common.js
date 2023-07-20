@@ -17,13 +17,10 @@ export function readJson(filePath) {
  * @returns {Promise<boolean|*>}
  */
 export async function makeForwardMsg(e, msg = [], dec = '') {
-  let nickname = Bot.nickname
-  if (e.isGroup) {
-    let info = await Bot.pickMember(e.group_id, Bot.uin)
-    nickname = info.card || info.nickname
-  }
+  let nickname = e.bot.nickname
+
   let userInfo = {
-    user_id: Bot.uin,
+    user_id: e.bot.uin,
     nickname
   }
 
