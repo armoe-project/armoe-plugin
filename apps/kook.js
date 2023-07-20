@@ -1,5 +1,6 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import config from '../utils/config.js'
+import { getPlatform } from '../utils/common.js'
 import fetch from 'node-fetch'
 
 export class kook extends plugin {
@@ -23,6 +24,12 @@ export class kook extends plugin {
   }
 
   async kook(e) {
+    const platform = getPlatform(e)
+
+    if (platform == 'KOOK') {
+      return await this.reply('该命令不支持KOOK平台使用.')
+    }
+
     if (e.isPrivate) {
       return await this.reply('该命令仅限群聊使用.')
     }
@@ -71,6 +78,12 @@ export class kook extends plugin {
   }
 
   async kookSet(e) {
+    const platform = getPlatform(e)
+
+    if (platform == 'KOOK') {
+      return await this.reply('该命令不支持KOOK平台使用.')
+    }
+
     if (e.isPrivate) {
       return await this.reply('该命令仅限群聊使用!')
     }

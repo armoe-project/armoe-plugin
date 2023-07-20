@@ -51,3 +51,12 @@ export async function makeForwardMsg(e, msg = [], dec = '') {
 
   return forwardMsg
 }
+
+/**
+ * 判断机器人所在平台 (仅 TRSS-Yunzai)
+ */
+export function getPlatform(e) {
+  const version = e.bot.version
+  if (!version) return false
+  return version.id
+}
