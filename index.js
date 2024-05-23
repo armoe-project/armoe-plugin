@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import { pluginPackage } from './utils/package.js'
+import { kook } from './native/kook.js'
 
 const files = fs.readdirSync('./plugins/armoe-plugin/apps').filter((file) => file.endsWith('.js'))
 
@@ -22,6 +23,8 @@ for (let i in files) {
   }
   apps[name] = ret[i].value[Object.keys(ret[i].value)[0]]
 }
+
+kook()
 
 logger.mark('-----------------')
 logger.mark(`欢迎使用 Armoe Plugin, 当前版本: ${pluginPackage.version}`)

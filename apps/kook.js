@@ -18,6 +18,10 @@ export class kook extends plugin {
         {
           reg: '^#(KOOK|kook)设置(.*)$',
           fnc: 'kookSet'
+        },
+        {
+          reg: '^#(KOOK|kook)监听$',
+          fnc: 'kookMonitor'
         }
       ]
     })
@@ -34,7 +38,7 @@ export class kook extends plugin {
       return await this.reply('该命令仅限群聊使用.')
     }
 
-    const server = config.get(`kook.servers.${e.group_id}`)
+    const server = config.get(`kook.${e.group_id}.server`)
 
     if (!server) {
       return await this.reply('请使用 #KOOK设置 设置本群服务器')
@@ -122,11 +126,54 @@ export class kook extends plugin {
         .replace(/\/widget.json/, '')
         .trim()
 
-      config.set(`kook.servers.${e.group_id}`, server)
+      config.set(`kook.${e.group_id}.server`, server)
 
-      await this.reply(`已成功设置本群KOOK服务器为: ${data.name}`)
+      await this.reply(
+        `已成功设置本群KOOK服务器为: ${data.name}` +
+          `\n如需查询语音频道在线请发送: #KOOK` +
+          `\n如需监听服务器语音频道请发送: #KOOK监听`
+      )
     } catch (e) {
       await this.reply(errMsg)
+    }
+  }
+
+  async kookMonitor(e) {
+    const platform = getPlatform(e)
+
+    if (platform == 'KOOK') {
+      return await this.reply('该命令不支持KOOK平台使用.')
+    }
+
+    if (e.isPrivate) {
+      return await this.reply('该命令仅限群聊使用.')
+    }
+
+    const server = config.get(`kook.${e.group_id}.server`)
+
+    if (!server) {
+      return await this.reply('请使用 #KOOK设置 设置本群服务器')
+    }
+
+    const url = `https://www.kookapp.cn/api/guilds/${server}/widget.json`
+    const response = await fetch(url)
+    const errMsg = '错误, 无法获取数据!\n请检查服务器小工具是否已开启!'
+
+    if (!response.ok) {
+      return await this.reply(errMsg)
+    }
+
+    const data = await response.json()
+    const name = data.name
+
+    const status = config.get(`kook.${e.group_id}.monitor`)
+
+    if (status) {
+      config.set(`kook.${e.group_id}.monitor`, false)
+      return await this.reply(`已关闭对服务器 ${name} 的监听，如需开启请再次发送 #KOOK监听`)
+    } else {
+      config.set(`kook.${e.group_id}.monitor`, true)
+      return await this.reply(`已开启对服务器 ${name} 的监听，如需关闭请再次发送 #KOOK监听`)
     }
   }
 }

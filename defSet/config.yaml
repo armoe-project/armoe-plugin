@@ -1,3 +1,4 @@
 kook:
-  servers:
-    '0': '0'
+  default_server:
+    server: '0'
+    monitor: false
