@@ -4,6 +4,7 @@ export function kook() {
     for (const uin of Bot.uin) {
       if (typeof uin === 'string') {
         if (uin.startsWith('ko_')) {
+          logger.info('开始对 KOOK 加入/退出语言频道进行监听')
           var bot = Bot[uin]
           bot.sdk.on('event.system', async (event) => {
             const rawEvent = event.rawEvent
@@ -19,13 +20,17 @@ export function kook() {
                   const guild = await api.guild.view(guildId)
                   const channel = await api.channel.view(body.channel_id)
                   const user = await api.user.view(body.user_id)
+                  if (user.data.bot) {
+                    return
+                  }
                   let action = ''
                   if (type === 'joined_channel') {
                     action = '加入'
                   } else if (type === 'exited_channel') {
                     action = '退出'
                   }
-                  const message = `服务器 ${guild.data.name} 用户 ${user.data.username}#${user.data.identify_num} 已${action} 语音频道 ${channel.data.name}`
+                  const message = `服务器 ${guild.data.name} 用户 ${user.data.nickname}#${user.data.identify_num} 已${action} 语音频道 ${channel.data.name}`
+                  logger.info(message)
                   group.sendMsg(message)
                 }
               }
