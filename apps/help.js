@@ -10,6 +10,11 @@ const helpList = [
     name: 'KOOK语音查询',
     desc: '查询KOOK语音频道在线人数',
     usage: '#KOOK'
+  },
+  {
+    name: '喵言喵语',
+    desc: '随机获取一条喵言喵语, 卡拉彼丘似了喵!',
+    usage: '#喵言喵语'
   }
 ]
 

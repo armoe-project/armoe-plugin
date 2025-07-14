@@ -1,4 +1,6 @@
 import config from '../utils/config.js'
+import meowMessage from '../resources/meow.js'
+
 export function kook() {
   setTimeout(() => {
     for (const uin of Bot.uin) {
@@ -36,7 +38,12 @@ export function kook() {
               }
             }
           })
-          break
+
+          logger.info('正在让机器人玩卡拉彼丘. 卡拉彼丘似了喵!')
+          bot.sdk.API.game.startGameActivity(1208188)
+
+          const random = Math.floor(Math.random() * meowMessage.length)
+          logger.info(meowMessage[random])
         }
       }
     }
